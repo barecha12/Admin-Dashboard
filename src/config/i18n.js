@@ -1,11 +1,13 @@
 // Centralized translations for header and sidebar
 // Extendable: add new languages with the same key structure.
+const encodeFlag = (svg) => `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+
 const languages = [
-  { code: 'EN', name: 'English', sample: 'Hello', dir: 'ltr' },
-  { code: 'FR', name: 'Français', sample: 'Bonjour', dir: 'ltr' },
-  { code: 'AR', name: 'العربية', sample: 'مرحبا', dir: 'rtl' },
-  { code: 'AM', name: 'አማርኛ', sample: 'ሰላም', dir: 'ltr' },
-  { code: 'OM', name: 'Afaan Oromo', sample: 'Akkam', dir: 'ltr' },
+  { code: 'EN', name: 'English', sample: 'Hello', dir: 'ltr', flag: encodeFlag("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'><rect width='60' height='40' fill='#b22234'/><g fill='#fff'>{stripes}</g><rect width='24' height='18' fill='#3c3b6e'/><g fill='#fff' font-size='4' font-family='Arial' text-anchor='middle'><text x='6' y='6'>★</text><text x='12' y='10'>★</text><text x='6' y='14'>★</text><text x='12' y='18'>★</text></g></svg>".replace('{stripes}', Array.from({length:6},(_,i)=>`<rect y='${i*8+4}' width='60' height='4'/>`).join('')) ) },
+  { code: 'FR', name: 'Français', sample: 'Bonjour', dir: 'ltr', flag: encodeFlag("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'><rect width='20' height='40' fill='#0055A4'/><rect x='20' width='20' height='40' fill='#fff'/><rect x='40' width='20' height='40' fill='#EF4135'/></svg>") },
+  { code: 'AR', name: 'العربية', sample: 'مرحبا', dir: 'rtl', flag: encodeFlag("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'><rect width='60' height='40' fill='#006c35'/><path d='M10 20h40' stroke='#fff' stroke-width='4' stroke-linecap='round'/><circle cx='30' cy='20' r='3' fill='#fff'/></svg>") },
+  { code: 'AM', name: 'አማርኛ', sample: 'ሰላም', dir: 'ltr', flag: encodeFlag("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'><rect width='60' height='40' fill='#00853f'/><rect y='13.3' width='60' height='13.4' fill='#fdda24'/><rect y='26.6' width='60' height='13.4' fill='#ef3340'/><circle cx='30' cy='20' r='7' fill='#0f4ea8'/><path d='M30 13.5 32 20 26 17 34 17 28 20z' fill='#fdda24'/></svg>") },
+  { code: 'OM', name: 'Afaan Oromo', sample: 'Akkam', dir: 'ltr', flag: encodeFlag("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'><rect width='60' height='40' fill='#00853f'/><rect y='13.3' width='60' height='13.4' fill='#fdda24'/><rect y='26.6' width='60' height='13.4' fill='#ef3340'/><circle cx='30' cy='20' r='7' fill='#0f4ea8'/><path d='M30 13.5 32 20 26 17 34 17 28 20z' fill='#fdda24'/></svg>") },
 ];
 
 const translations = {

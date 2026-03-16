@@ -30,6 +30,11 @@ const Header = ({
     [language]
   );
   const t = translations[activeLang.code]?.header || translations.EN.header;
+  const renderFlag = (flag, size = 16) => (
+    flag?.startsWith('data:image')
+      ? <img src={flag} alt="" style={{ width: `${size}px`, height: `${size * 0.75}px`, objectFit: 'cover', borderRadius: '4px', boxShadow: '0 0 6px rgba(0,0,0,0.15)' }} />
+      : <span style={{ fontSize: `${size}px` }}>{flag || '🏳️'}</span>
+  );
 
   const quickActions = useMemo(() => ([
     { key: 'createUser', fallback: 'Create user', path: '/users' },
@@ -224,14 +229,15 @@ const Header = ({
               border: '1px solid rgba(34,211,238,0.2)', 
               color: 'var(--text-main)', 
               cursor: 'pointer',
-              width: '40px',
-              height: '40px',
+              width: '42px',
+              height: '42px',
               borderRadius: '12px',
               display: 'grid',
               placeItems: 'center',
-              position: 'relative'
+              position: 'relative',
+              padding: 0
             }}>
-            <Globe2 size={18} />
+            {renderFlag(activeLang.flag, 22)}
             <span style={{ position: 'absolute', bottom: '-10px', fontSize: '10px', color: 'var(--text-muted)' }}>{activeLang.code}</span>
           </button>
           {langOpen && (
@@ -242,6 +248,7 @@ const Header = ({
                   className="popover-item"
                   onClick={() => { onChangeLanguage(lang.code); setLangOpen(false); }}
                 >
+                  <span style={{ width: '28px', display: 'flex', justifyContent: 'center' }}>{renderFlag(lang.flag, 16)}</span>
                   <span style={{ width: '40px', fontWeight: 700 }}>{lang.code}</span>
                   <div style={{ display: 'flex', flexDirection: 'column' }}>
                     <span style={{ fontWeight: 600 }}>{lang.name}</span>
