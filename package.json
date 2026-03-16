@@ -1,0 +1,25 @@
+{
+  "name": "admin-dashboard",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "set \"ESBUILD_BINARY_PATH=%cd%\\node_modules\\@esbuild\\win32-x64\\esbuild.exe\" && vite",
+    "build": "set \"ESBUILD_BINARY_PATH=%cd%\\node_modules\\@esbuild\\win32-x64\\esbuild.exe\" && vite build",
+    "preview": "set \"ESBUILD_BINARY_PATH=%cd%\\node_modules\\@esbuild\\win32-x64\\esbuild.exe\" && vite preview"
+  },
+  "dependencies": {
+    "framer-motion": "^12.36.0",
+    "lucide-react": "^0.263.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^7.13.1",
+    "recharts": "^2.7.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.0.3",
+    "vite": "^4.4.5"
+  }
+}
